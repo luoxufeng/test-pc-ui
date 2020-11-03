@@ -1,0 +1,20 @@
+/* 改变 icon 字体路径变量，必需 */
+$--color-primary:  #824C96 !default;
+$--color-main: #824C96;
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+@import "~element-ui/packages/theme-chalk/src/index";
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #F5F6FA;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
