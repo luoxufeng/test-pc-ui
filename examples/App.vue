@@ -39,13 +39,16 @@
     >
       <div slot="content">这是详细内容哦</div>
     </YtoModal>
-    <el-form :model="form" ref="form" label-width="145px" class="yt">
+    <el-form :inline="true" :model="form" ref="form" label-width="145px" class="yt">
       <el-form-item label="所属区域：" prop="region" ref="regionForm">
         <YtoRegionChoose
           @confirm="setDistrictName"
           :defaultRegion="form.region"
           :defaultRegionName="form.regionName"
         />
+      </el-form-item>
+      <el-form-item label="所属区域2" prop="city">
+       <YtoSelectCity :defaultCity="form.city" @confirm="confirmCity"/>
       </el-form-item>
     </el-form>
   </div>
@@ -63,7 +66,9 @@ export default {
       imgVisible: false,
       form: {
         region: [],
-        regionName: []
+        regionName: [],
+        city:[],
+        cityName:[]
       },
       columns: [
         { prop: 'code', label: '代码', sort: false },
@@ -131,6 +136,13 @@ export default {
 
     },
     onSubmit () {
+    },
+    confirmCity(obj) {
+      if(obj) {
+        console.log('obj='+JSON.stringify(obj))
+        this.form.city = obj.city;
+        this.form.cityName = obj.cityName;
+      }
     }
   }
 }

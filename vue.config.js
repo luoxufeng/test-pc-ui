@@ -28,6 +28,12 @@ module.exports = {
   // 代理服务器配置
   devServer: {
     open: true,
-    hot: true
+    hot: true,
+    proxy:{
+      '/postStation': {
+        target: 'http://10.130.36.127:8972',
+        changeOrigin: true
+      }
+    }
   }
 };

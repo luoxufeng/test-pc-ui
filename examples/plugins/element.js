@@ -17,7 +17,8 @@ import {
   Tabs,
   TabPane,
   Form,
-  FormItem
+  FormItem,
+  Cascader
 } from 'element-ui'
 
 Vue.use(Button);
@@ -38,3 +39,4 @@ Vue.use(Tabs);
 Vue.use(TabPane);
 Vue.use(Form);
 Vue.use(FormItem);
+Vue.use(Cascader);

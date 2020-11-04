@@ -1,10 +1,12 @@
 import YtoModal from './YtoModal';
 import YtoTable from './YtoTable';
 import YtoRegionChoose from './YtoRegionChoose';
+import YtoSelectCity from './YtoSelectCity';
 const components = [
   YtoModal,
   YtoTable,
-  YtoRegionChoose
+  YtoRegionChoose,
+  YtoSelectCity
 ];
 const install = function (Vue) {
   components.forEach(component => {
@@ -18,5 +20,6 @@ export default {
   install,
   YtoModal,
   YtoTable,
-  YtoRegionChoose
+  YtoRegionChoose,
+  YtoSelectCity
 };
