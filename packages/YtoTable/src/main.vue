@@ -27,9 +27,11 @@
         label="序号"
         :resizable="false"
       >
-        <template slot-scope="scope">{{
+        <template slot-scope="scope">
+          {{
           pager ? pager.limit * (pager.pageNo - 1) + scope.$index + 1 : ""
-        }}</template>
+          }}
+        </template>
       </el-table-column>
       <el-table-column
         :resizable="false"
@@ -44,49 +46,7 @@
         :label="obj.label"
       >
         <template slot-scope="scope">
-          <template v-if="obj.tooltipComponent">
-            <span v-if="obj.tooltipComponent(scope.row.checkFlag, obj) == 1">
-              <div>
-                <el-tooltip
-                  style="margin: 0 auto; width: fit-content"
-                  class="item"
-                  effect="dark"
-                  placement="right"
-                >
-                  <div slot="content" style="width: 250px !important">
-                    {{
-                      obj.checkInfo(scope.row, obj)
-                        ? obj.checkInfo(scope.row, obj)
-                        : "未注明原因"
-                    }}
-                  </div>
-                  <div
-                    style="
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                      color: #ecaa10;
-                    "
-                  >
-                    <span>待复核</span>
-                    <icon
-                      name="questionMark"
-                      width="18"
-                      height="18"
-                      style="margin-left: 5px"
-                    ></icon>
-                  </div>
-                </el-tooltip>
-              </div>
-            </span>
-            <span v-else-if="obj.tooltipComponent(scope.row.status, obj) == 0"
-              >已生成</span
-            >
-            <span v-else-if="obj.tooltipComponent(scope.row.status, obj) == 1"
-              >已发送业务员</span
-            >
-          </template>
-          <template v-else-if="obj.formatter">
+          <template v-if="obj.formatter">
             <span
               v-html="obj.formatter(scope.row, obj)"
               @click="obj.method ? obj.method(scope.row, obj) : ''"
